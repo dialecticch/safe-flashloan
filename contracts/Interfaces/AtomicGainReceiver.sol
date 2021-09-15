@@ -14,7 +14,7 @@ interface AtomicGainReceiver {
     /// @param data The data passed on.
     function flash(
         GnosisSafe from,
-        address[] calldata asset,
+        address[] calldata assets,
         uint256[] calldata amounts,
         bytes calldata data
     ) external;

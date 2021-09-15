@@ -1,6 +1,8 @@
+// SPDX-License-Identifier: MIT
 pragma solidity ^0.8.4;
 
 import "./Interfaces/GnosisSafe.sol";
+import "./Interfaces/ERC20.sol";
 
 /// @title LoanModule
 /// @author Dialectic
@@ -17,7 +19,7 @@ abstract contract LoanModule {
         uint256[] calldata amounts,
         address to,
         bytes calldata data
-    ) external;
+    ) external virtual;
 
     function transfer(
         GnosisSafe safe,

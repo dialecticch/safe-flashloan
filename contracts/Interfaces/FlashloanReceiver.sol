@@ -15,7 +15,7 @@ interface FlashloanReceiver {
     /// @param data The data passed on.
     function flash(
         GnosisSafe from,
-        address[] calldata asset,
+        address[] calldata assets,
         uint256[] calldata amounts,
         uint256[] calldata back,
         bytes calldata data
