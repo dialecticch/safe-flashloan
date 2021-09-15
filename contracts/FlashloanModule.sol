@@ -8,12 +8,11 @@ import "./LoanModule.sol";
 /// @dev A simple Module allowing anyone to execute Flashloans using the safe.
 /// @author Dialectic
 contract FlashloanModule is LoanModule {
-
-    string public NAME = "Flashloan Module";
-    string public VERSION = "1.0.0";
+    string public override NAME = "Flashloan Module";
+    string public override VERSION = "1.0.0";
 
     /// The fees for a given safe.
-    mapping (address => uint256) public fee;
+    mapping(address => uint256) public fee;
 
     /// @dev Sets the fee for the sender.
     /// @param _fee The new fee.
