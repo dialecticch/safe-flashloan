@@ -1,12 +1,9 @@
-//SPDX-License-Identifier: MIT
 pragma solidity ^0.8.4;
 
-import "./Interfaces/GnosisSafe.sol";
-import "./Interfaces/ERC20.sol";
-import "./Interfaces/FlashloanReceiver.sol";
 import "./LoanModule.sol";
 
-contract FlashloanModule is LoanModule {
+// Not the best name.
+contract AtomicGainModule is LoanModule {
     function execute(
         GnosisSafe safe,
         address[] calldata assets,
@@ -16,16 +13,16 @@ contract FlashloanModule is LoanModule {
     ) external {
         require(amounts.length == assets.length, "Length does not match");
 
-        uint256[] memory outputs = new uint256[](amounts.length);
+        uint256[] memory balances = new uint256[](amounts.length);
         for (uint256 i = 0; i < assets.length; i++) {
+            balance[i] = ERC20(assets[i]).balanceOf(safe);
             transfer(safe, msg.sender, assets[i], amounts[i]);
-            outputs[i] = amounts[i]; // @TODO CALC FEE
         }
 
-        FlashloanReceiver(to).flash(safe, assets, amounts, outputs, data);
+        AtomicGainModule(to).flash(safe, assets, amounts, data);
 
         for (uint256 i = 0; i < assets.length; i++) {
-            transferFrom(safe, msg.sender, assets[i], outputs[i]);
+            require(ERC20(assets[i]).balanceOf(safe) >= balances[i]);
         }
     }
 }

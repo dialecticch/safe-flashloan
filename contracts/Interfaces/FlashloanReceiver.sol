@@ -3,7 +3,7 @@ pragma solidity ^0.8.4;
 
 import "./GnosisSafe.sol";
 
-interface Receiver {
+interface FlashloanReceiver {
     function flash(
         GnosisSafe from,
         address[] calldata asset,
