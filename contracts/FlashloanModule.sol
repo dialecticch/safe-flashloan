@@ -6,6 +6,9 @@ import "./Interfaces/ERC20.sol";
 import "./Interfaces/FlashloanReceiver.sol";
 import "./LoanModule.sol";
 
+/// @title FlashloanModule
+/// @dev A simple Module allowing anyone to execute Flashloans using the safe.
+/// @author Dialectic
 contract FlashloanModule is LoanModule {
     function execute(
         GnosisSafe safe,
