@@ -11,6 +11,10 @@ import "./Interfaces/AtomicGainReceiver.sol";
 ///      or more of the assets lent at the end of the transaction.
 /// @author Dialectic
 contract AtomicGainModule is LoanModule {
+
+    string public NAME = "Atomic Gain Module";
+    string public VERSION = "1.0.0";
+
     function execute(
         GnosisSafe safe,
         address[] calldata assets,

@@ -57,4 +57,7 @@ abstract contract LoanModule {
 
         require(success, "failed to transfer");
     }
+
+    function NAME() external view returns (string);
+    function VERSION() external view returns (string);
 }

@@ -9,6 +9,9 @@ import "./LoanModule.sol";
 /// @author Dialectic
 contract FlashloanModule is LoanModule {
 
+    string public NAME = "Flashloan Module";
+    string public VERSION = "1.0.0";
+
     /// The fees for a given safe.
     mapping (address => uint256) public fee;
 
