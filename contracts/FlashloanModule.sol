@@ -12,6 +12,8 @@ contract FlashloanModule is LoanModule {
     /// The fees for a given safe.
     mapping (address => uint256) public fee;
 
+    /// @dev Sets the fee for the sender.
+    /// @param fee The new fee.
     function setFee(uint256 fee) {
         fee[msg.sender] = fee;
     }
