@@ -1,0 +1,36 @@
+{
+  "name": "@dialecticch/safe-flashloan",
+  "devDependencies": {
+    "@nomiclabs/hardhat-ethers": "^2.0.2",
+    "@nomiclabs/hardhat-waffle": "^2.0.1",
+    "chai": "^4.3.4",
+    "ethereum-waffle": "^3.4.0",
+    "ethers": "^5.4.6",
+    "hardhat": "^2.6.4",
+    "prettier": "^2.3.1",
+    "prettier-plugin-solidity": "*",
+    "solhint-plugin-prettier": "^0.0.5",
+    "lint-staged": "^11.0.1"
+  },
+  "lint-staged": {
+    "*.ts": [
+      "prettier --write"
+    ],
+    "*.sol": [
+      "prettier --write"
+    ],
+    "*.md": "prettier --write",
+    "*.js": "eslint --cache --fix"
+  },
+  "scripts": {
+    "build": "hardhat compile",
+    "test": "hardhat test",
+    "coverage": "hardhat coverage",
+    "lint": "npm run lint:sol",
+    "lint:sol": "solhint 'contracts/**/*.sol'",
+    "fmt": "npm run fmt:sol && npm run fmt:ts",
+    "fmt:sol": "prettier 'contracts/**/*.sol' -w",
+    "fmt:ts": "prettier --write 'test/**/*.ts'",
+    "prepare": "husky install"
+  }
+}
